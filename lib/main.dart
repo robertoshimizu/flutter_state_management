@@ -20,26 +20,17 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.deepPurple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter State Management'),
+      home: MyHomePage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Flutter State Management'),
       ),
       body: Center(
         child: Column(
@@ -49,8 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
               'You have pushed the button this many times:',
             ),
             Consumer<CounterModel>(
-                builder: (context, counter, child) => Text(
-                    '\$${counter.counter}',
+                builder: (context, counter, child) => Text('${counter.counter}',
                     style: Theme.of(context).textTheme.headline4)),
           ],
         ),
@@ -62,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
-              onPressed: () => context.read<CounterModel>().incrementCounter(),
+              onPressed: () => Provider.of<CounterModel>(context, listen: false)
+                  .incrementCounter(),
               tooltip: 'Increment',
               child: Icon(Icons.add),
             ),
@@ -70,7 +61,8 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5.0),
             child: FloatingActionButton(
-              onPressed: () => context.read<CounterModel>().decrementCounter(),
+              onPressed: () => Provider.of<CounterModel>(context, listen: false)
+                  .decrementCounter(),
               tooltip: 'Decrement',
               child: Icon(Icons.remove),
             ),
@@ -82,8 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class CounterModel extends ChangeNotifier {
-  int _counter;
+class CounterModel with ChangeNotifier {
+  int _counter = 0;
 
   /// The current sum of counter.
   int get counter => _counter;
