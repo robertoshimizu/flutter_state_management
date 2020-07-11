@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: BlocProvider<CounterBloc>(
-        create: (context) => CounterBloc(0),
+        create: (context) => CounterBloc(),
         child: MyHomePage(title: 'Flutter State Management using Bloc'),
       ),
     );
@@ -90,7 +90,7 @@ enum CounterEvent { increment, decrement }
 //Bloc - Business Logic
 
 class CounterBloc extends Bloc<CounterEvent, int> {
-  CounterBloc(int initialState) : super(initialState);
+  CounterBloc() : super(0);
 
   // Note: Just from the class declaration we can tell that our CounterBloc
   // will be taking CounterEvents as input and outputting integers.
