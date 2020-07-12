@@ -3,12 +3,24 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:state_mgmt/authentication/authentication_bloc.dart';
+import 'package:state_mgmt/repository/user_repository.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginInitial());
+  final UserRepository userRepository;
+  final AuthenticationBloc authenticationBloc;
+
+  LoginBloc({
+    @required this.userRepository,
+    @required this.authenticationBloc,
+  })  : assert(userRepository != null),
+        assert(authenticationBloc != null),
+        super(LoginInitial());
+
+  LoginState get initialState => LoginInitial();
 
   @override
   Stream<LoginState> mapEventToState(
