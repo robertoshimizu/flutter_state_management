@@ -73,7 +73,7 @@ Each of these states will have an implication on what the user sees. For example
 
 It's critical to identify what the different states are going to be before diving into the implementation.
 
-The equatable package is used in order to be able to compare two instances of AuthenticationState. By default, == returns true only if the two objects are the same instance.
+The **equatable package** is used in order to be able to compare two instances of AuthenticationState. By default, == returns true only if the two objects are the same instance.
 
 ## Authentication Events
 
