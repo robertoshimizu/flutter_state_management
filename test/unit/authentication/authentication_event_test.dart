@@ -9,8 +9,10 @@ void main() {
       });
     });
     group('AuthenticationLoggedIn', () {
-      test('props are []', () {
-        expect(AuthenticationLoggedIn().props, []);
+      test('props are [token]', () {
+        String token;
+        token = 'anytoken';
+        expect(AuthenticationLoggedIn(token: token).props, ['anytoken']);
       });
     });
     group('AuthenticationLoggedOut', () {
