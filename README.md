@@ -71,7 +71,7 @@ For managing app state, you’ll want to research your options. Your choice depe
 ### Resources:
 
 - [State Management: Flutter Oficial Documentation](https://flutter.dev/docs/development/data-and-backend/state-mgmt)
-- [Flutter TDD Clean Architecture](https://resocoder.com/category/tutorials/flutter/tdd-clean-architecture/)
+- [Flutter TDD Clean Architecture by ResoCoder](https://resocoder.com/category/tutorials/flutter/tdd-clean-architecture/)
 - [Bloc by Felix Angelov](https://bloclibrary.dev/#/)
 - [Flutter & Firebase App Tutorial by The Net Ninja](https://www.youtube.com/playlist?list=PL4cUxeGkcC9j--TKIdkb3ISfRbJeJYQwC)
 - [The Complete Flutter Development Bootcamp Using Dart by App Brewery](https://www.appbrewery.co/p/flutter-development-bootcamp-with-dart)
