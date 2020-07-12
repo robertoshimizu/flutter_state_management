@@ -12,6 +12,47 @@ Login Flow in Flutter using the Bloc library.
 Provides tools for creating blocs
 * bloc by Felix Angelov
 
+# Why Bloc?
+
+## CLEAN Architecture and SOLID Principles
+
+#### Reso Coder's Flutter Clean Architecture Proposal
+
+![alt text](Flutter_Clean_Architecture.png)
+
+### Presentation Layer
+
+**Presentation layer** contains the UI in the form of Widgets and also the presentation logic holders, which can be implemented as a ChangeNotifier, Bloc, Reducer, ViewModel, MobX Store...
+This tutorial will implement the **BLoC pattern** using the **flutter_bloc** package.
+
+# BLoC
+
+**BLoC**, also written as BLoC is an abbreviation for **Business Logic Component**. Following the *Reso Coder's Clean Architecture Proposal*, he claims it should rather be called a PLoC (Presentation Logic Component), because all the **business logic** is in the **domain layer**, after all.
+
+Nevertheless, BLoC (as proposed by *Felix Angelov*) also claims that it allow us to separate our application into three layers:
+* Presentation
+* Business Logic
+* Data
+    * Repository
+    * Data Provider
+
+#### BLoC Architecture
+
+![alt text](BLoC.png)
+
+The **presentation layer's** responsibility is to figure out how to render itself based on one or more bloc states. In addition, it should handle user input and application lifecycle events.
+
+The **business logic (bloc)** layer's responsibility is to respond to events from the presentation layer with new states. The bloc layer can depend on one or more repositories to retrieve data needed to build up the application state.
+​Every bloc has a state stream which other blocs can subscribe to in order to react to changes within the bloc.
+
+Finally, the **data layer's** responsibility is to retrieve/manipulate data from one or more sources: The **repository layer** is a wrapper around one or more data providers with which the Bloc Layer communicates. The **data provider's** responsibility is to provide raw data. The data provider should be generic and versatile.
+
+# Login Tutorial
+
+Here we build a Login Flow in Flutter using the Bloc library.
+In this project we will buid two BLoCs, one for the Authentication Flow and other for the Login Flow.
+
+
 # Authentication
 
 ## Authentication States
@@ -31,6 +72,8 @@ Each of these states will have an implication on what the user sees. For example
 * if the authentication state was **AuthenticationFailure**, the user might see a login form.
 
 It's critical to identify what the different states are going to be before diving into the implementation.
+
+The equatable package is used in order to be able to compare two instances of AuthenticationState. By default, == returns true only if the two objects are the same instance.
 
 ## Authentication Events
 
