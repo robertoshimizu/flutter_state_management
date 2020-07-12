@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:state_mgmt/authentication/bloc/authentication_bloc.dart';
+import 'package:state_mgmt/authentication/authentication_bloc.dart';
 
 void main() {
   group('Authentication Events', () {
