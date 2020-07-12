@@ -68,7 +68,7 @@ void main() {
     });
   });
 
-  group('LoginBittonPressed', () {
+  group('LoginButtonPressed using bloc_test', () {
     blocTest(
       'emits [LoginLoading, LoginInitial] and token on success',
       build: () async {

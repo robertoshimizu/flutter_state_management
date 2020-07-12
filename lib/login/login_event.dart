@@ -5,9 +5,10 @@ abstract class LoginEvent extends Equatable {
 }
 
 class LoginButtonPressed extends LoginEvent {
-  final String email, password;
+  final String email;
+  final String password;
 
-  LoginButtonPressed({
+  const LoginButtonPressed({
     @required this.email,
     @required this.password,
   });
