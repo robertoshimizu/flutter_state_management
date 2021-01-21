@@ -21,19 +21,24 @@ class MyApp extends StatelessWidget {
         // Check for errors
         if (snapshot.hasError) {
           print('Something went wrong in Flutter Fire');
-          return SomethingWentWrong();
+          return MaterialApp(
+            home: SomethingWentWrong(),
+          );
         }
 
         // Once complete, show your application
         if (snapshot.connectionState == ConnectionState.done) {
-          print('All set');
-          return MyAwesomeApp();
+          print('Firebase initialized succesfully');
+          return MaterialApp(
+            home: MyAwesomeApp(),
+          );
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
 
-        print('Loading...');
-        return Loading();
+        return MaterialApp(
+          home: Loading(),
+        );
       },
     );
   }
@@ -42,20 +47,28 @@ class MyApp extends StatelessWidget {
 class SomethingWentWrong extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+      child: Text('Something Went Wrong'),
+    );
   }
 }
 
 class MyAwesomeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('data'),
+      ),
+    );
   }
 }
 
 class Loading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return CircularProgressIndicator(
+      strokeWidth: 4.0,
+    );
   }
 }
