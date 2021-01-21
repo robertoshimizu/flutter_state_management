@@ -29,6 +29,8 @@
 .pub-cache/
 .pub/
 /build/
+/Runner.*/
+*.lock
 
 # Google Services
 google-services.json
