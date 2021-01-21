@@ -2,9 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:meta/meta.dart';
-
-import '../../../domain/repository/user_repository.dart';
+import 'package:flutter/foundation.dart';
+import 'package:state_mgmt/domain/repository/user_repository.dart';
 
 part 'authentication_event.dart';
 part 'authentication_state.dart';
