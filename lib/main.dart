@@ -1,11 +1,10 @@
-import 'package:flutter/material.dart';
-
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:state_mgmt/data/user_repository_implementation.dart';
-import 'package:state_mgmt/presentation/bloc/authentication/authentication_bloc.dart';
 
+import 'data/user_repository_implementation.dart';
 import 'domain/repository/user_repository.dart';
+import 'presentation/bloc/authentication/authentication_bloc.dart';
 import 'presentation/pages/common/loading_indicator.dart';
 import 'presentation/pages/home/home_page.dart';
 import 'presentation/pages/login/login_page.dart';
