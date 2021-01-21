@@ -1,11 +1,14 @@
 # Uncomment this line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
+
+# Override Firebase SDK Version
+#$FirebaseSDKVersion = '6.33.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 project 'Runner', {
-  'Debug' => :debug,
+  'Debug' => :release,
   'Profile' => :release,
   'Release' => :release,
 }
@@ -31,7 +34,8 @@ target 'Runner' do
   use_frameworks!
   use_modular_headers!
 
-  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  #flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+  #pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => '6.26.0'
 end
 
 post_install do |installer|
@@ -39,3 +43,13 @@ post_install do |installer|
     flutter_additional_ios_build_settings(target)
   end
 end
+
+# add the Firebase pod for Google Analytics
+pod 'Firebase/Analytics'
+pod 'Firebase/Auth'
+pod 'Firebase/Firestore'
+pod 'Firebase/Core', '>= 0'
+pod 'FirebaseCrashlytics', '>= 0'
+# add pods for any other desired Firebase products
+# https://firebase.google.com/docs/ios/setup#available-pods
+
